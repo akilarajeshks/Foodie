@@ -2,9 +2,9 @@ package com.zestworks.foodie.ui.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.zestworks.foodie.common.LCE
 import com.zestworks.foodie.data.DataResponse
 import com.zestworks.foodie.data.memory.ItemListRepository
-import com.zestworks.foodie.ui.common.LCE
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -34,8 +34,10 @@ class ListViewModel(
                         itemRows.addAll(item.products.map {
                             ProductRow(
                                 ProductInfo(
-                                    it.name,
-                                    "http://mobcategories.s3-website-eu-west-1.amazonaws.com${it.url}"
+                                    name = it.name,
+                                    imageUrl = "http://mobcategories.s3-website-eu-west-1.amazonaws.com${it.url}",
+                                    id = it.id,
+                                    categoryId = it.categoryId
                                 )
                             )
                         })

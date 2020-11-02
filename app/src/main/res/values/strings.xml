@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Foodie</string>
     <string name="item_image">Picture of food item</string>
+    <string name="detail_currency">%1$s %2$s</string>
 </resources>

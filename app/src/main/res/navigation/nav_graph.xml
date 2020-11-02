@@ -9,5 +9,21 @@
         android:id="@+id/itemsListFragment"
         android:name="com.zestworks.foodie.ui.list.ListFragment"
         android:label="fragment_items_list"
-        tools:layout="@layout/fragment_items_list" />
+        tools:layout="@layout/fragment_items_list" >
+        <action
+            android:id="@+id/action_itemsListFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.zestworks.foodie.ui.detail.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <argument
+            android:name="productID"
+            app:argType="string" />
+        <argument
+            android:name="categoryID"
+            app:argType="string" />
+    </fragment>
 </navigation>

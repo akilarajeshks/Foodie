@@ -6,7 +6,9 @@ data class ItemListViewState(
 
 data class ProductInfo(
     val name: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val id: String,
+    val categoryId: String
 )
 
 sealed class ItemRow

@@ -1,4 +1,4 @@
-package com.zestworks.foodie.ui.common
+package com.zestworks.foodie.common
 
 sealed class LCE<out T : Any> {
     data class Content<out T : Any>(val viewData: T) : LCE<T>()

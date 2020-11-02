@@ -10,7 +10,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.zestworks.foodie.R
 
-class ItemsAdapter(private var listOfItems: List<ItemRow>) :
+class ItemsAdapter(
+    private var listOfItems: List<ItemRow>,
+    val clickCallback: (String, String) -> Unit
+) :
     RecyclerView.Adapter<ItemsViewHolder>() {
     private val CATEGORY_ITEM_TYPE = 1
     private val PRODUCT_ITEM_TYPE = 2
@@ -46,6 +49,12 @@ class ItemsAdapter(private var listOfItems: List<ItemRow>) :
             }
             PRODUCT_ITEM_TYPE -> {
                 if (holder is ProductItemViewHolder && currentItem is ProductRow) {
+                    holder.itemView.setOnClickListener {
+                        clickCallback(
+                            currentItem.productInfo.id,
+                            currentItem.productInfo.categoryId
+                        )
+                    }
                     holder.itemName.text = currentItem.productInfo.name
                     val url = currentItem.productInfo.imageUrl
                     Glide

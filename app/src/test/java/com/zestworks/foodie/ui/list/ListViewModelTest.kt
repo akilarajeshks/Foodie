@@ -1,7 +1,7 @@
 package com.zestworks.foodie.ui.list
 
+import com.zestworks.foodie.common.LCE
 import com.zestworks.foodie.data.memory.ItemListRepository
-import com.zestworks.foodie.ui.common.LCE
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -41,50 +41,66 @@ class ListViewModelTest {
                         ProductRow(
                             ProductInfo(
                                 "Bread",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Bread.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Bread.jpg",
+                                "1",
+                                "36802"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Sandwich",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Sandwich.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Sandwich.jpg",
+                                "2",
+                                "36802"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Milk",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Milk.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Milk.jpg",
+                                "3",
+                                "36802"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Cake",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Cake.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Cake.jpg",
+                                "4",
+                                "36802"
                             )
                         ),
                         CategoryRow("Drink"),
                         ProductRow(
                             ProductInfo(
                                 "Cola",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Cola.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Cola.jpg",
+                                "1",
+                                "36803"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Fanta",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Fanta.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Fanta.jpg",
+                                "2",
+                                "36803"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Juice",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Juice.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Juice.jpg",
+                                "3",
+                                "36803"
                             )
                         ),
                         ProductRow(
                             ProductInfo(
                                 "Beer",
-                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Beer.jpg"
+                                "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Beer.jpg",
+                                "4",
+                                "36803"
                             )
                         ),
                     )

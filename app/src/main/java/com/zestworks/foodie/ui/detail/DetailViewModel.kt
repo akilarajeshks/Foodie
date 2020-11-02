@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zestworks.foodie.data.memory.ItemListRepository
 import com.zestworks.foodie.data.model.Product
-import com.zestworks.foodie.ui.common.LCE
+import com.zestworks.foodie.common.LCE
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

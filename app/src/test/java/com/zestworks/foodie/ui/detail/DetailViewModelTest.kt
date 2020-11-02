@@ -3,7 +3,7 @@ package com.zestworks.foodie.ui.detail
 import com.zestworks.foodie.data.memory.ItemListRepository
 import com.zestworks.foodie.data.model.Product
 import com.zestworks.foodie.data.model.SalePrice
-import com.zestworks.foodie.ui.common.LCE
+import com.zestworks.foodie.common.LCE
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
