@@ -1,4 +1,4 @@
-package com.zestworks.foodie.extensions
+package com.zestworks.foodie.common.extensions
 
 import android.view.View
 

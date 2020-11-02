@@ -5,10 +5,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zestworks.foodie.R
-import com.zestworks.foodie.extensions.hide
-import com.zestworks.foodie.extensions.show
+import com.zestworks.foodie.common.extensions.hide
+import com.zestworks.foodie.common.extensions.show
 import com.zestworks.foodie.common.LCE
-import com.zestworks.foodie.ui.detail.ProductDetailFragmentArgs
 import kotlinx.android.synthetic.main.fragment_items_list.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.viewmodel.ext.android.viewModel
