@@ -10,17 +10,21 @@ class InMemoryItemRepository(private val itemListService: ItemListService) : Ite
     private lateinit var listOfItems: List<ItemResponse>
 
     override suspend fun getListOfItems(): DataResponse<List<ItemResponse>> {
-        val itemListResponse = itemListService.getItemListResponse()
-        return if (itemListResponse.isSuccessful) {
-            val itemListResponseBody = itemListResponse.body()
-            if (itemListResponseBody != null) {
-                listOfItems = itemListResponseBody
-                DataResponse.Success(itemListResponseBody)
+        try {
+            val itemListResponse = itemListService.getItemListResponse()
+            return if (itemListResponse.isSuccessful) {
+                val itemListResponseBody = itemListResponse.body()
+                if (itemListResponseBody != null) {
+                    listOfItems = itemListResponseBody
+                    DataResponse.Success(itemListResponseBody)
+                } else {
+                    DataResponse.Error("Response is null")
+                }
             } else {
-                DataResponse.Error("Response body is null")
+                DataResponse.Error("Response unsuccessful")
             }
-        } else {
-            DataResponse.Error("Response unsuccessful")
+        } catch (exception: Exception) {
+            return DataResponse.Error(exception.toString())
         }
     }
 

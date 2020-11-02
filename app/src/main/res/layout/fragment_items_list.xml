@@ -35,6 +35,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:textSize="24sp"
+        android:textColor="#FF0000"
+        tools:text="Something went wrong"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
