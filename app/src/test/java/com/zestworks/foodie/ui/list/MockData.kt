@@ -97,7 +97,7 @@ private const val mockResponse = "[{\n" +
         "\t\t}]\n" +
         "}]"
 
-private val goodResponse by lazy { gson.fromJson(mockResponse, Array<ItemResponse>::class.java).toList() }
+val goodResponse by lazy { gson.fromJson(mockResponse, Array<ItemResponse>::class.java).toList() }
 
 val successNetworkResponse by lazy { DataResponse.Success(goodResponse) }
 
