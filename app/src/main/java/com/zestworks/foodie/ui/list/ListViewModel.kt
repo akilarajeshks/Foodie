@@ -3,6 +3,7 @@ package com.zestworks.foodie.ui.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zestworks.foodie.common.LCE
+import com.zestworks.foodie.common.LCE.*
 import com.zestworks.foodie.data.DataResponse
 import com.zestworks.foodie.data.memory.ItemListRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -14,7 +15,7 @@ class ListViewModel(
     private val itemListRepository: ItemListRepository,
     private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
-    private val _itemListResponse = MutableStateFlow<LCE<ItemListViewState>>(LCE.Loading)
+    private val _itemListResponse = MutableStateFlow<LCE<ItemListViewState>>(Loading)
     val itemListResponse: Flow<LCE<ItemListViewState>> = _itemListResponse
 
     fun onUIStarted() {
@@ -42,10 +43,10 @@ class ListViewModel(
                             )
                         })
                     }
-                    LCE.Content(ItemListViewState(itemRows))
+                    Content(ItemListViewState(itemRows))
                 }
                 is DataResponse.Error -> {
-                    LCE.Error(itemListResponse.reason)
+                    Error(itemListResponse.reason)
                 }
             }
 

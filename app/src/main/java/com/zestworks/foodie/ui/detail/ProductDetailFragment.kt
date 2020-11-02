@@ -1,11 +1,12 @@
 package com.zestworks.foodie.ui.detail
 
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.zestworks.foodie.R
-import com.zestworks.foodie.common.LCE
+import com.zestworks.foodie.common.LCE.*
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -19,7 +20,7 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
         lifecycleScope.launchWhenStarted {
             detailViewModel.viewState.collect {
                 when (it) {
-                    is LCE.Content -> {
+                    is Content -> {
                         Glide.with(requireContext())
                             .load("http://mobcategories.s3-website-eu-west-1.amazonaws.com${it.viewData.url}")
                             .centerInside()
@@ -34,10 +35,10 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
                             it.viewData.salePrice.amount
                         )
                     }
-                    is LCE.Error -> {
-
+                    is Error -> {
+                        Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
-                    LCE.Loading -> {
+                    Loading -> {
 
                     }
                 }
