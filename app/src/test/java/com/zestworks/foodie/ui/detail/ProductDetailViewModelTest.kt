@@ -1,9 +1,9 @@
 package com.zestworks.foodie.ui.detail
 
+import com.zestworks.foodie.common.LCE
 import com.zestworks.foodie.data.memory.ItemListRepository
 import com.zestworks.foodie.data.model.Product
 import com.zestworks.foodie.data.model.SalePrice
-import com.zestworks.foodie.common.LCE
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -15,11 +15,11 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class DetailViewModelTest {
+class ProductDetailViewModelTest {
 
     private val itemListRepository = mockk<ItemListRepository>()
     private val detailViewModel =
-        DetailViewModel(itemRepository = itemListRepository, TestCoroutineDispatcher())
+        ProductDetailViewModel(itemRepository = itemListRepository, TestCoroutineDispatcher())
 
     @Test
     fun `Product list successfully fetched`() = runBlockingTest {
@@ -35,7 +35,7 @@ class DetailViewModelTest {
             url = "/Cola.jpg"
         )
 
-        val actualViewStates = mutableListOf<LCE<Product>>()
+        val actualViewStates = mutableListOf<LCE<ProductDetailViewState>>()
 
         val job = launch {
             detailViewModel.viewState.collect {
@@ -51,20 +51,14 @@ class DetailViewModelTest {
         actualViewStates shouldBe listOf(
             LCE.Loading,
             LCE.Content(
-                Product(
-                    id = "1",
-                    description = "",
-                    salePrice = SalePrice(
-                        amount = "0.81",
-                        currency = "EUR"
-                    ),
-                    categoryId = "36803",
-                    name = "Cola",
-                    url = "/Cola.jpg"
+                ProductDetailViewState(
+                    imageUrl = "http://mobcategories.s3-website-eu-west-1.amazonaws.com/Cola.jpg",
+                    amount = "0.81",
+                    currency = "EUR",
+                    productName = "Cola"
                 )
             )
         )
         job.cancel()
-
     }
 }
